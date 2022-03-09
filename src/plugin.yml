@@ -1,0 +1,4 @@
+name: HeadTagAPI
+version: 1.2-RELEASE
+author: SrPattif
+main: srpattif.headtag.HeadTag
