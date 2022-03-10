@@ -14,15 +14,21 @@ import net.minecraft.server.v1_8_R3.PacketPlayOutEntityDestroy;
 import net.minecraft.server.v1_8_R3.PacketPlayOutEntityTeleport;
 import srpattif.headtag.Listeners.Join;
 import srpattif.headtag.Listeners.Quit;
+import srpattif.headtag.Utils.Metrics;
 
 public class HeadTag extends JavaPlugin {
 
 	public static HashMap<Player, EntityArmorStand> attached = new HashMap<>();
 	public static HeadTag main;
+	public static Metrics metrics;
 
 	@Override
 	public void onEnable() {
 		main = this;
+		
+		int pluginId = 14591;
+        metrics = new Metrics(this, pluginId);
+        
 		this.getServer().getPluginManager().registerEvents(new Join(), this);
 		this.getServer().getPluginManager().registerEvents(new Quit(), this);
 

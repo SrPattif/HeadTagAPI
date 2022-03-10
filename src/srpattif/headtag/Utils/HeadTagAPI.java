@@ -21,6 +21,8 @@ public class HeadTagAPI {
 	 * @param tag
 	 */
 	public static void setPlayerHeadTag(Player p, String tag) {
+		
+		HeadTag.metrics.addCustomChart(new Metrics.SimplePie("methods", () -> "setPlayerHeadTag"));
 
 		int id = 0;
 		boolean contem = false;
@@ -65,6 +67,8 @@ public class HeadTagAPI {
 	 * @param player
 	 */
 	public static void removePlayerHeadTag(Player p) {
+		HeadTag.metrics.addCustomChart(new Metrics.SimplePie("methods", () -> "removePlayerHeadTag"));
+		
 		if (HeadTag.attached.containsKey(p)) {
 			for (Player todos : Bukkit.getOnlinePlayers()) {
 				PacketPlayOutEntityDestroy destroy = new PacketPlayOutEntityDestroy(HeadTag.attached.get(p).getId());
